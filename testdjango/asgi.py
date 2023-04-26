@@ -1,5 +1,5 @@
 """
-ASGI config for testpage project.
+ASGI config for testdjango project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'testpage.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'testdjango.settings')
 
 application = get_asgi_application()
