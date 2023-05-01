@@ -1,37 +1,31 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 
+monthly_challenges = {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+}
+
 # Create your views here.
 
 
+def monthly_challenge_by_number(request, month):
+    return HttpResponse(month)
+
+
 def monthly_challenge(request, month):
-    challenge_text = None
-
-    if month == "january":
-        challenge_text = "January"
-    elif month == "february":
-        challenge_text = "February"
-    elif month == "march":
-        challenge_text = "March"
-    elif month == "april":
-        challenge_text = "April"
-    elif month == "may":
-        challenge_text = "May"
-    elif month == "june":
-        challenge_text = "June"
-    elif month == "july":
-        challenge_text = "July"
-    elif month == "august":
-        challenge_text = "August"
-    elif month == "september":
-        challenge_text = "September"
-    elif month == "october":
-        challenge_text = "October"
-    elif month == "november":
-        challenge_text = "November"
-    elif month == "december":
-        challenge_text = "December"
-    else:
-        return HttpResponseNotFound("This page has not been found")
-
-    return HttpResponse(challenge_text)
+    try:
+        challenge_text = monthly_challenges[month]
+        return HttpResponse(challenge_text)
+    except:
+        return HttpResponseNotFound("This page is not found")

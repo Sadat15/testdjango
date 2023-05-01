@@ -3,5 +3,6 @@ from . import views
 app_name = "testdjango"
 
 urlpatterns = [
-    path("<month>", views.monthly_challenge)
+    path("<int:month>", views.monthly_challenge_by_number),
+    path("<str:month>", views.monthly_challenge)
 ]
